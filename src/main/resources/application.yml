@@ -1,0 +1,11 @@
+server:
+  port:8086
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.100.10.195:3306/science_fiction
+    username: root
+    password: "liuweijia1015"
+mybatis:
+  mapper-locations: classpath*:com/veeja/mapper/*.xml
+  type-aliases-package: com.veeja.pojo

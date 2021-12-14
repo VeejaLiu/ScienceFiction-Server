@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.veeja.mapper.ScienceFictionCategoryMapper">
+    <resultMap id="BaseResultMap" type="com.veeja.pojo.ScienceFictionCategory">
+        <!--@mbg.generated-->
+        <!--@Table SCIENCE_FICTION_CATEGORY-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="category_name" jdbcType="VARCHAR" property="categoryName"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, category_name
+    </sql>
+
+    <select id="selectAll" resultType="com.veeja.pojo.ScienceFictionCategory">
+        select *
+        from SCIENCE_FICTION_CATEGORY
+    </select>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.veeja.mapper.ScienceFictionAuthorMapper">
+  <resultMap id="BaseResultMap" type="com.veeja.pojo.ScienceFictionAuthor">
+    <!--@mbg.generated-->
+    <!--@Table SCIENCE_FICTION_AUTHOR-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="author_first_name" jdbcType="VARCHAR" property="authorFirstName" />
+    <result column="author_last_name" jdbcType="VARCHAR" property="authorLastName" />
+    <result column="author_nation" jdbcType="VARCHAR" property="authorNation" />
+    <result column="author_informations" jdbcType="LONGVARCHAR" property="authorInformations" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, author_first_name, author_last_name, author_nation, author_informations
+  </sql>
+    <select id="selectAll" resultType="com.veeja.pojo.ScienceFictionAuthor">
+        select *
+        from SCIENCE_FICTION_AUTHOR
+    </select>
+</mapper>
