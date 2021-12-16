@@ -4,11 +4,16 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import org.springframework.stereotype.Component;
 
 @TableName(value = "SCIENCE_FICTION_BOOK")
-@Component
 public class ScienceFictionBook {
+    public static final String COL_ID = "id";
+    public static final String COL_BOOK_NAME = "book_name";
+    public static final String COL_BOOK_AUTHOR = "book_author";
+    public static final String COL_BOOK_CATEGORY = "book_category";
+    public static final String COL_BOOK_TAGS = "book_tags";
+    public static final String COL_BOOK_IMAGES = "book_images";
+    public static final String COL_BOOK_PATH = "book_path";
     @TableId(value = "id", type = IdType.INPUT)
     private Long id;
 
@@ -27,22 +32,8 @@ public class ScienceFictionBook {
     @TableField(value = "book_images")
     private String bookImages;
 
-    @TableField(value = "book_path")
-    private String bookPath;
-
-    public static final String COL_ID = "id";
-
-    public static final String COL_BOOK_NAME = "book_name";
-
-    public static final String COL_BOOK_AUTHOR = "book_author";
-
-    public static final String COL_BOOK_CATEGORY = "book_category";
-
-    public static final String COL_BOOK_TAGS = "book_tags";
-
-    public static final String COL_BOOK_IMAGES = "book_images";
-
-    public static final String COL_BOOK_PATH = "book_path";
+    @TableField(value = "book_file_path")
+    private Long bookFilePath;
 
     /**
      * @return id
@@ -129,17 +120,17 @@ public class ScienceFictionBook {
     }
 
     /**
-     * @return book_path
+     * @return book_file_path
      */
-    public String getBookPath() {
-        return bookPath;
+    public Long getBookFilePath() {
+        return bookFilePath;
     }
 
     /**
-     * @param bookPath
+     * @param bookFilePath
      */
-    public void setBookPath(String bookPath) {
-        this.bookPath = bookPath;
+    public void setBookFilePath(Long bookFilePath) {
+        this.bookFilePath = bookFilePath;
     }
 
     @Override
@@ -154,7 +145,7 @@ public class ScienceFictionBook {
         sb.append(", bookCategory=").append(bookCategory);
         sb.append(", bookTags=").append(bookTags);
         sb.append(", bookImages=").append(bookImages);
-        sb.append(", bookPath=").append(bookPath);
+        sb.append(", bookFilePath=").append(bookFilePath);
         sb.append("]");
         return sb.toString();
     }
@@ -172,12 +163,12 @@ public class ScienceFictionBook {
         }
         ScienceFictionBook other = (ScienceFictionBook) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getBookName() == null ? other.getBookName() == null : this.getBookName().equals(other.getBookName()))
-            && (this.getBookAuthor() == null ? other.getBookAuthor() == null : this.getBookAuthor().equals(other.getBookAuthor()))
-            && (this.getBookCategory() == null ? other.getBookCategory() == null : this.getBookCategory().equals(other.getBookCategory()))
-            && (this.getBookTags() == null ? other.getBookTags() == null : this.getBookTags().equals(other.getBookTags()))
-            && (this.getBookImages() == null ? other.getBookImages() == null : this.getBookImages().equals(other.getBookImages()))
-            && (this.getBookPath() == null ? other.getBookPath() == null : this.getBookPath().equals(other.getBookPath()));
+                && (this.getBookName() == null ? other.getBookName() == null : this.getBookName().equals(other.getBookName()))
+                && (this.getBookAuthor() == null ? other.getBookAuthor() == null : this.getBookAuthor().equals(other.getBookAuthor()))
+                && (this.getBookCategory() == null ? other.getBookCategory() == null : this.getBookCategory().equals(other.getBookCategory()))
+                && (this.getBookTags() == null ? other.getBookTags() == null : this.getBookTags().equals(other.getBookTags()))
+                && (this.getBookImages() == null ? other.getBookImages() == null : this.getBookImages().equals(other.getBookImages()))
+                && (this.getBookFilePath() == null ? other.getBookFilePath() == null : this.getBookFilePath().equals(other.getBookFilePath()));
     }
 
     @Override
@@ -190,7 +181,7 @@ public class ScienceFictionBook {
         result = prime * result + ((getBookCategory() == null) ? 0 : getBookCategory().hashCode());
         result = prime * result + ((getBookTags() == null) ? 0 : getBookTags().hashCode());
         result = prime * result + ((getBookImages() == null) ? 0 : getBookImages().hashCode());
-        result = prime * result + ((getBookPath() == null) ? 0 : getBookPath().hashCode());
+        result = prime * result + ((getBookFilePath() == null) ? 0 : getBookFilePath().hashCode());
         return result;
     }
 }
