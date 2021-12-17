@@ -14,7 +14,7 @@ public class ScienceFictionBook {
     public static final String COL_BOOK_TAGS = "book_tags";
     public static final String COL_BOOK_IMAGES = "book_images";
     public static final String COL_BOOK_PATH = "book_path";
-    @TableId(value = "id", type = IdType.INPUT)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @TableField(value = "book_name")

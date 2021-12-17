@@ -62,17 +62,17 @@ public class ScienceFictionBookServiceImpl implements ScienceFictionBookService 
                 bookFile.setFileSize((Long) fileSize);
                 bookFile.setPath(path + newFileName);
                 bookFile.setFileName(newFileName);
-                int fileID = scienceFictionFileMapper.insert(bookFile);
+                scienceFictionFileMapper.insert(bookFile);
 
                 // 保存作者信息
                 ScienceFictionAuthor author = new ScienceFictionAuthor();
                 author.setAuthorFirstName(bookAuthor);
-                int authorID = scienceFictionAuthorMapper.insert(author);
+                scienceFictionAuthorMapper.insert(author);
 
                 // 保存书籍信息
                 ScienceFictionBook book = new ScienceFictionBook();
-                book.setBookFilePath((long) fileID);
-                book.setBookAuthor((long) authorID);
+                book.setBookFilePath(bookFile.getId());
+                book.setBookAuthor(author.getId());
                 book.setBookName(bookName);
                 scienceFictionBookMapper.insert(book);
             }

@@ -1,7 +1,6 @@
 package com.veeja.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.veeja.pojo.ScienceFictionCategory;
 import com.veeja.pojo.ScienceFictionFile;
 
 import java.util.List;

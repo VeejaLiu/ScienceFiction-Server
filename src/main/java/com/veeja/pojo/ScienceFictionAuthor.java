@@ -12,7 +12,7 @@ public class ScienceFictionAuthor {
     public static final String COL_AUTHOR_LAST_NAME = "author_last_name";
     public static final String COL_AUTHOR_NATION = "author_nation";
     public static final String COL_AUTHOR_INFORMATIONS = "author_informations";
-    @TableId(value = "id", type = IdType.INPUT)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @TableField(value = "author_first_name")

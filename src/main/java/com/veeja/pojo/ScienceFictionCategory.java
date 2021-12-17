@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName(value = "SCIENCE_FICTION_CATEGORY")
 public class ScienceFictionCategory {
-    @TableId(value = "id", type = IdType.INPUT)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @TableField(value = "category_name")
