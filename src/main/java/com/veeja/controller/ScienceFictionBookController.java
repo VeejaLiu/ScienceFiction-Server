@@ -4,6 +4,7 @@ import com.veeja.dto.UploadBook;
 import com.veeja.pojo.ScienceFictionBook;
 import com.veeja.sevice.ScienceFictionBookService;
 import org.joda.time.DateTime;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,14 +27,14 @@ public class ScienceFictionBookController {
     @Resource
     private ScienceFictionBookService scienceFictionBookService;
 
-    @GetMapping("/getAllBooks")
+    @GetMapping("book/getAllBook")
     @ResponseBody
     public List<ScienceFictionBook> selectAll() {
         List<ScienceFictionBook> books = scienceFictionBookService.selectAll();
         return books;
     }
 
-    @PostMapping("/book/uploadBook")
+    @PostMapping("book/uploadBook")
     public String uploadBook(UploadBook uploadBook) throws IOException {
         scienceFictionBookService.uploadBook(uploadBook);
         return "success";

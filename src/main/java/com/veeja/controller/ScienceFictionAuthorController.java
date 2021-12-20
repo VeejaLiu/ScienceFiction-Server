@@ -17,7 +17,7 @@ public class ScienceFictionAuthorController {
     @Resource
     private ScienceFictionAuthorService scienceFictionAuthorService;
 
-    @GetMapping("/getAllAuthors")
+    @GetMapping("author/getAllAuthor")
     @ResponseBody
     public List<ScienceFictionAuthor> selectAll() {
         List<ScienceFictionAuthor> authors = scienceFictionAuthorService.selectAll();

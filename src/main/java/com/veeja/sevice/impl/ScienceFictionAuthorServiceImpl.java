@@ -20,4 +20,16 @@ public class ScienceFictionAuthorServiceImpl implements ScienceFictionAuthorServ
     public List<ScienceFictionAuthor> selectAll() {
         return scienceFictionAuthorMapper.selectAll();
     }
+
+    @Override
+    public ScienceFictionAuthor getAuthor(ScienceFictionAuthor author) {
+        ScienceFictionAuthor existingAuthor = scienceFictionAuthorMapper.selectAuthorByFirstName(author.getAuthorFirstName());
+        if (existingAuthor != null) {
+            return existingAuthor;
+        } else {
+            scienceFictionAuthorMapper.insert(author);
+            return author;
+
+        }
+    }
 }

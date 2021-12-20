@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ScienceFictionAuthorService {
     List<ScienceFictionAuthor> selectAll();
+
+    ScienceFictionAuthor getAuthor(ScienceFictionAuthor author);
 }

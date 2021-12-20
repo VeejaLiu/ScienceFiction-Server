@@ -7,6 +7,7 @@ import com.veeja.mapper.ScienceFictionFileMapper;
 import com.veeja.pojo.ScienceFictionAuthor;
 import com.veeja.pojo.ScienceFictionBook;
 import com.veeja.pojo.ScienceFictionFile;
+import com.veeja.sevice.ScienceFictionAuthorService;
 import com.veeja.sevice.ScienceFictionBookService;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,8 @@ public class ScienceFictionBookServiceImpl implements ScienceFictionBookService 
     private ScienceFictionFileMapper scienceFictionFileMapper;
     @Resource
     private ScienceFictionAuthorMapper scienceFictionAuthorMapper;
+    @Resource
+    private ScienceFictionAuthorService scienceFictionAuthorService;
 
     @Override
     public List<ScienceFictionBook> selectAll() {
@@ -67,7 +70,7 @@ public class ScienceFictionBookServiceImpl implements ScienceFictionBookService 
                 // 保存作者信息
                 ScienceFictionAuthor author = new ScienceFictionAuthor();
                 author.setAuthorFirstName(bookAuthor);
-                scienceFictionAuthorMapper.insert(author);
+                author = scienceFictionAuthorService.getAuthor(author);
 
                 // 保存书籍信息
                 ScienceFictionBook book = new ScienceFictionBook();
