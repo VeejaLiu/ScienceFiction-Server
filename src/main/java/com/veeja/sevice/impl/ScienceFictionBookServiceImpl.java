@@ -63,7 +63,7 @@ public class ScienceFictionBookServiceImpl implements ScienceFictionBookService 
 
                 ScienceFictionFile bookFile = new ScienceFictionFile();
                 bookFile.setFileSize((Long) fileSize);
-                bookFile.setPath(path + newFileName);
+                bookFile.setPath(path + '/' + newFileName);
                 bookFile.setFileName(newFileName);
                 scienceFictionFileMapper.insert(bookFile);
 
@@ -90,7 +90,7 @@ public class ScienceFictionBookServiceImpl implements ScienceFictionBookService 
         int year = now.getYear();
         int month = now.getMonthOfYear();
         int day = now.getDayOfMonth();
-        path += "/" + year + "/" + month + "/" + day;
+        path += "/" + year + "/" + month + "/" + day + "/";
         return path;
     }
 }

@@ -16,4 +16,10 @@ public class ScienceFictionFileServiceImpl  implements ScienceFictionFileService
     public List<ScienceFictionFile> selectAll() {
         return scienceFictionFileMapper.selectAll();
     }
+
+    @Override
+    public ScienceFictionFile getFileInformationByBookId(String id) {
+        ScienceFictionFile file = scienceFictionFileMapper.getFileInformationByBookId(id);
+        return file;
+    }
 }

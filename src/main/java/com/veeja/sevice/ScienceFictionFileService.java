@@ -7,4 +7,6 @@ import java.util.List;
 public interface ScienceFictionFileService {
 
     List<ScienceFictionFile> selectAll();
+
+    ScienceFictionFile getFileInformationByBookId(String id);
 }

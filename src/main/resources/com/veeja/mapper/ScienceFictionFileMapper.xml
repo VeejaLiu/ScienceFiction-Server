@@ -5,4 +5,5 @@
         select *
         from science_fiction.SCIENCE_FICTION_FILE
     </select>
+    <select id="getFileInformationByBookId" resultType="com.veeja.pojo.ScienceFictionFile"></select>
 </mapper>

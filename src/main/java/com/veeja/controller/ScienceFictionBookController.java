@@ -2,14 +2,13 @@ package com.veeja.controller;
 
 import com.veeja.dto.UploadBook;
 import com.veeja.pojo.ScienceFictionBook;
+import com.veeja.pojo.ScienceFictionFile;
 import com.veeja.sevice.ScienceFictionBookService;
+import com.veeja.sevice.ScienceFictionFileService;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ClassUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -23,20 +22,53 @@ import java.util.UUID;
  * @author liuweijia
  */
 @RestController
+@RequestMapping("book")
 public class ScienceFictionBookController {
     @Resource
     private ScienceFictionBookService scienceFictionBookService;
 
-    @GetMapping("book/getAllBook")
+    @Resource
+    private ScienceFictionFileService scienceFictionFileService;
+
+    @GetMapping("getAllBook")
     @ResponseBody
     public List<ScienceFictionBook> selectAll() {
         List<ScienceFictionBook> books = scienceFictionBookService.selectAll();
         return books;
     }
 
-    @PostMapping("book/uploadBook")
+    @PostMapping("uploadBook")
     public String uploadBook(UploadBook uploadBook) throws IOException {
         scienceFictionBookService.uploadBook(uploadBook);
         return "success";
+    }
+
+    @GetMapping("/downloadBook")
+    public String downloadBook(String id) throws IOException {
+        ScienceFictionFile scienceFictionFile = scienceFictionFileService.getFileInformationByBookId(id);
+
+        // File file = new File(downloadFilePath +'/'+ fileName);
+        // if(!file.exists()){
+        //     return "下载文件不存在";
+        // }
+        // response.reset();
+        // response.setContentType("application/octet-stream");
+        // response.setCharacterEncoding("utf-8");
+        // response.setContentLength((int) file.length());
+        // response.setHeader("Content-Disposition", "attachment;filename=" + fileName );
+        //
+        // try(BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));) {
+        //     byte[] buff = new byte[1024];
+        //     OutputStream os  = response.getOutputStream();
+        //     int i = 0;
+        //     while ((i = bis.read(buff)) != -1) {
+        //         os.write(buff, 0, i);
+        //         os.flush();
+        //     }
+        // } catch (IOException e) {
+        //     log.error("{}",e);
+        //     return "下载失败";
+        // }
+        return "下载成功";
     }
 }
