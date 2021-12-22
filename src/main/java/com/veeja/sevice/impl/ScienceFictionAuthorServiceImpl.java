@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.veeja.mapper.ScienceFictionAuthorMapper;
 import com.veeja.pojo.ScienceFictionAuthor;
 import com.veeja.sevice.ScienceFictionAuthorService;
@@ -31,5 +30,10 @@ public class ScienceFictionAuthorServiceImpl implements ScienceFictionAuthorServ
             return author;
 
         }
+    }
+
+    @Override
+    public void updateAuthor(ScienceFictionAuthor author) {
+        scienceFictionAuthorMapper.updateById(author);
     }
 }

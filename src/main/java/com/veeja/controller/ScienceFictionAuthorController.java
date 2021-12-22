@@ -2,9 +2,7 @@ package com.veeja.controller;
 
 import com.veeja.pojo.ScienceFictionAuthor;
 import com.veeja.sevice.ScienceFictionAuthorService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -13,14 +11,21 @@ import java.util.List;
  * @author liuweijia
  */
 @RestController
+@RequestMapping("author")
 public class ScienceFictionAuthorController {
     @Resource
     private ScienceFictionAuthorService scienceFictionAuthorService;
 
-    @GetMapping("author/getAllAuthor")
+    @GetMapping("getAllAuthor")
     @ResponseBody
     public List<ScienceFictionAuthor> selectAll() {
         List<ScienceFictionAuthor> authors = scienceFictionAuthorService.selectAll();
         return authors;
+    }
+
+    @PostMapping(value = "updateAuthor", produces = "application/json;charset=UTF-8")
+    public String updateAuthor(@RequestBody ScienceFictionAuthor author) {
+        scienceFictionAuthorService.updateAuthor(author);
+        return "success";
     }
 }
