@@ -1,8 +1,10 @@
 package com.veeja.sevice;
 
 import com.veeja.pojo.ScienceFictionFile;
-import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 public interface ScienceFictionFileService {
-    
+
+    List<ScienceFictionFile> selectAll();
 }
