@@ -59,11 +59,11 @@ public class ScienceFictionBookServiceImpl implements ScienceFictionBookService 
                 file.transferTo(newFile);
 
                 // 保存文件信息
-                Number fileSize = file.getSize();
+                Long fileSize = file.getSize();
 
                 ScienceFictionFile bookFile = new ScienceFictionFile();
-                bookFile.setFileSize((Long) fileSize);
-                bookFile.setPath(path + '/' + newFileName);
+                bookFile.setFileSize(fileSize);
+                bookFile.setPath(path + newFileName);
                 bookFile.setFileName(newFileName);
                 scienceFictionFileMapper.insert(bookFile);
 
