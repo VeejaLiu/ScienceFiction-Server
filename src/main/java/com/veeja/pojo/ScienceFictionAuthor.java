@@ -8,11 +8,6 @@ import java.util.Date;
 
 @TableName(value = "SCIENCE_FICTION_AUTHOR")
 public class ScienceFictionAuthor {
-    public static final String COL_ID = "id";
-    public static final String COL_AUTHOR_FIRST_NAME = "author_first_name";
-    public static final String COL_AUTHOR_LAST_NAME = "author_last_name";
-    public static final String COL_AUTHOR_NATION = "author_nation";
-    public static final String COL_AUTHOR_INFORMATIONS = "author_informations";
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
