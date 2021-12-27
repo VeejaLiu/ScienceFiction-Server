@@ -4,6 +4,7 @@
     <select id="selectAll" resultType="com.veeja.pojo.ScienceFictionAuthor">
         select *
         from SCIENCE_FICTION_AUTHOR
+        order by create_date desc
     </select>
     <select id="selectAuthorByFirstName" resultType="com.veeja.pojo.ScienceFictionAuthor">
         select *

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import java.util.Date;
 
 @TableName(value = "SCIENCE_FICTION_AUTHOR")
 public class ScienceFictionAuthor {
@@ -26,6 +27,15 @@ public class ScienceFictionAuthor {
 
     @TableField(value = "author_informations")
     private String authorInformations;
+
+    @TableField(value = "is_deleted")
+    private Integer isDeleted;
+
+    @TableField(value = "create_date")
+    private Date createDate;
+
+    @TableField(value = "update_date")
+    private Date updateDate;
 
     /**
      * @return id
@@ -97,6 +107,48 @@ public class ScienceFictionAuthor {
         this.authorInformations = authorInformations;
     }
 
+    /**
+     * @return is_deleted
+     */
+    public Integer getIsDeleted() {
+        return isDeleted;
+    }
+
+    /**
+     * @param isDeleted
+     */
+    public void setIsDeleted(Integer isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+    /**
+     * @return create_date
+     */
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    /**
+     * @param createDate
+     */
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    /**
+     * @return update_date
+     */
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    /**
+     * @param updateDate
+     */
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -108,6 +160,9 @@ public class ScienceFictionAuthor {
         sb.append(", authorLastName=").append(authorLastName);
         sb.append(", authorNation=").append(authorNation);
         sb.append(", authorInformations=").append(authorInformations);
+        sb.append(", isDeleted=").append(isDeleted);
+        sb.append(", createDate=").append(createDate);
+        sb.append(", updateDate=").append(updateDate);
         sb.append("]");
         return sb.toString();
     }
@@ -128,7 +183,10 @@ public class ScienceFictionAuthor {
                 && (this.getAuthorFirstName() == null ? other.getAuthorFirstName() == null : this.getAuthorFirstName().equals(other.getAuthorFirstName()))
                 && (this.getAuthorLastName() == null ? other.getAuthorLastName() == null : this.getAuthorLastName().equals(other.getAuthorLastName()))
                 && (this.getAuthorNation() == null ? other.getAuthorNation() == null : this.getAuthorNation().equals(other.getAuthorNation()))
-                && (this.getAuthorInformations() == null ? other.getAuthorInformations() == null : this.getAuthorInformations().equals(other.getAuthorInformations()));
+                && (this.getAuthorInformations() == null ? other.getAuthorInformations() == null : this.getAuthorInformations().equals(other.getAuthorInformations()))
+                && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
+                && (this.getCreateDate() == null ? other.getCreateDate() == null : this.getCreateDate().equals(other.getCreateDate()))
+                && (this.getUpdateDate() == null ? other.getUpdateDate() == null : this.getUpdateDate().equals(other.getUpdateDate()));
     }
 
     @Override
@@ -140,6 +198,9 @@ public class ScienceFictionAuthor {
         result = prime * result + ((getAuthorLastName() == null) ? 0 : getAuthorLastName().hashCode());
         result = prime * result + ((getAuthorNation() == null) ? 0 : getAuthorNation().hashCode());
         result = prime * result + ((getAuthorInformations() == null) ? 0 : getAuthorInformations().hashCode());
+        result = prime * result + ((getIsDeleted() == null) ? 0 : getIsDeleted().hashCode());
+        result = prime * result + ((getCreateDate() == null) ? 0 : getCreateDate().hashCode());
+        result = prime * result + ((getUpdateDate() == null) ? 0 : getUpdateDate().hashCode());
         return result;
     }
 }
