@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.veeja.mapper.ScienceFictionBookMapper">
-    <resultMap id="BaseResultMap" type="com.veeja.pojo.ScienceFictionBook">
-        <!--@mbg.generated-->
-        <!--@Table SCIENCE_FICTION_BOOK-->
-        <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="book_name" jdbcType="VARCHAR" property="bookName"/>
-        <result column="book_author" jdbcType="BIGINT" property="bookAuthor"/>
-        <result column="book_category" jdbcType="BIGINT" property="bookCategory"/>
-        <result column="book_tags" jdbcType="VARCHAR" property="bookTags"/>
-        <result column="book_images" jdbcType="VARCHAR" property="bookImages"/>
-        <result column="book_file_path" jdbcType="BIGINT" property="bookFilePath"/>
-    </resultMap>
-    <sql id="Base_Column_List">
-        <!--@mbg.generated-->
-        id, book_name, book_author, book_category, book_tags, book_images, book_file_path
-    </sql>
     <select id="selectAll" resultType="com.veeja.pojo.ScienceFictionBook">
         select *
         from SCIENCE_FICTION_BOOK
