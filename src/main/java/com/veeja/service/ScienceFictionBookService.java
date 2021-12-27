@@ -1,4 +1,4 @@
-package com.veeja.sevice;
+package com.veeja.service;
 
 import com.veeja.dto.UploadBook;
 import com.veeja.pojo.ScienceFictionBook;

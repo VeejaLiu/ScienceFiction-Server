@@ -1,7 +1,7 @@
 package com.veeja.controller;
 
 import com.veeja.pojo.ScienceFictionCategory;
-import com.veeja.sevice.ScienceFictionCategoryService;
+import com.veeja.service.ScienceFictionCategoryService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

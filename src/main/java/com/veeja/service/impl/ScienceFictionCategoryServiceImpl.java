@@ -1,10 +1,10 @@
-package com.veeja.sevice.impl;
+package com.veeja.service.impl;
 
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.veeja.mapper.ScienceFictionCategoryMapper;
 import com.veeja.pojo.ScienceFictionCategory;
-import com.veeja.sevice.ScienceFictionCategoryService;
+import com.veeja.service.ScienceFictionCategoryService;
 
 import java.util.List;
 

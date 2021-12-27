@@ -1,4 +1,4 @@
-package com.veeja.sevice.impl;
+package com.veeja.service.impl;
 
 import com.veeja.dto.UploadBook;
 import com.veeja.mapper.ScienceFictionAuthorMapper;
@@ -7,8 +7,8 @@ import com.veeja.mapper.ScienceFictionFileMapper;
 import com.veeja.pojo.ScienceFictionAuthor;
 import com.veeja.pojo.ScienceFictionBook;
 import com.veeja.pojo.ScienceFictionFile;
-import com.veeja.sevice.ScienceFictionAuthorService;
-import com.veeja.sevice.ScienceFictionBookService;
+import com.veeja.service.ScienceFictionAuthorService;
+import com.veeja.service.ScienceFictionBookService;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

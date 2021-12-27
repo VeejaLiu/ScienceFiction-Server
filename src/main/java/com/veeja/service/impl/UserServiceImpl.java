@@ -1,8 +1,8 @@
-package com.veeja.sevice.impl;
+package com.veeja.service.impl;
 
 import com.veeja.mapper.UserMapper;
 import com.veeja.pojo.User;
-import com.veeja.sevice.UserService;
+import com.veeja.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -3,20 +3,13 @@ package com.veeja.controller;
 import com.veeja.dto.UploadBook;
 import com.veeja.pojo.ScienceFictionBook;
 import com.veeja.pojo.ScienceFictionFile;
-import com.veeja.sevice.ScienceFictionBookService;
-import com.veeja.sevice.ScienceFictionFileService;
-import org.joda.time.DateTime;
-import org.springframework.stereotype.Controller;
-import org.springframework.util.ClassUtils;
+import com.veeja.service.ScienceFictionBookService;
+import com.veeja.service.ScienceFictionFileService;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @author liuweijia

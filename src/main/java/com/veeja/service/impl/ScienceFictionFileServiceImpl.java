@@ -1,11 +1,11 @@
-package com.veeja.sevice.impl;
+package com.veeja.service.impl;
 
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 import com.veeja.pojo.ScienceFictionFile;
 import com.veeja.mapper.ScienceFictionFileMapper;
-import com.veeja.sevice.ScienceFictionFileService;
+import com.veeja.service.ScienceFictionFileService;
 @Service
 public class ScienceFictionFileServiceImpl  implements ScienceFictionFileService{
 

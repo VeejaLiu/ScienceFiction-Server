@@ -1,4 +1,4 @@
-package com.veeja.sevice.impl;
+package com.veeja.service.impl;
 
 import org.springframework.stereotype.Service;
 
@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.veeja.mapper.ScienceFictionAuthorMapper;
 import com.veeja.pojo.ScienceFictionAuthor;
-import com.veeja.sevice.ScienceFictionAuthorService;
+import com.veeja.service.ScienceFictionAuthorService;
 
 @Service
 public class ScienceFictionAuthorServiceImpl implements ScienceFictionAuthorService {

@@ -1,6 +1,5 @@
-package com.veeja.sevice;
+package com.veeja.service;
 
-import com.veeja.pojo.ScienceFictionBook;
 import com.veeja.pojo.ScienceFictionCategory;
 
 import java.util.List;

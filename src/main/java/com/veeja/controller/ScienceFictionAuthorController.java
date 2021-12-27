@@ -1,7 +1,7 @@
 package com.veeja.controller;
 
 import com.veeja.pojo.ScienceFictionAuthor;
-import com.veeja.sevice.ScienceFictionAuthorService;
+import com.veeja.service.ScienceFictionAuthorService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
