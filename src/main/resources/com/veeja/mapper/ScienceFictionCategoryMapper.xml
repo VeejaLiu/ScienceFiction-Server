@@ -15,5 +15,6 @@
     <select id="selectAll" resultType="com.veeja.pojo.ScienceFictionCategory">
         select *
         from SCIENCE_FICTION_CATEGORY
+        order by create_date desc
     </select>
 </mapper>

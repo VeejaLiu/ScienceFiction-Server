@@ -4,6 +4,7 @@
     <select id="selectAll" resultType="com.veeja.pojo.ScienceFictionFile">
         select *
         from science_fiction.SCIENCE_FICTION_FILE
+        order by create_date desc
     </select>
     <select id="getFileInformationByBookId" resultType="com.veeja.pojo.ScienceFictionFile"></select>
 </mapper>
