@@ -84,6 +84,11 @@ public class ScienceFictionBookServiceImpl implements ScienceFictionBookService 
         }
     }
 
+    @Override
+    public ScienceFictionBook getOneById(Integer id) {
+        return scienceFictionBookMapper.getOneById(id);
+    }
+
     private String getNewFilePath(String oldFileName) {
         String path = "/Users/liuweijia/data/SCIENCE-FICTION";
         DateTime now = new DateTime();

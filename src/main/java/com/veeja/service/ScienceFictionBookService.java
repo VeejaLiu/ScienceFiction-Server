@@ -9,5 +9,7 @@ public interface ScienceFictionBookService {
     List<ScienceFictionBook> selectAll();
 
     void uploadBook(UploadBook uploadBook);
+
+    ScienceFictionBook getOneById(Integer id);
 }
 

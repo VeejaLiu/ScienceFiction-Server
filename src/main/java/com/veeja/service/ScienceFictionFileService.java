@@ -8,5 +8,5 @@ public interface ScienceFictionFileService {
 
     List<ScienceFictionFile> selectAll();
 
-    ScienceFictionFile getFileInformationByBookId(String id);
+    ScienceFictionFile getOneById(Long id);
 }

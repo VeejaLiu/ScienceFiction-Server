@@ -10,5 +10,10 @@ spring:
 mybatis:
   mapper-locations: classpath*:com/veeja/mapper/*.xml
   type-aliases-package: com.veeja.pojo
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 server:
   port: 8080

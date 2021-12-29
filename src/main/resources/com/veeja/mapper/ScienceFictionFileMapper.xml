@@ -6,5 +6,9 @@
         from science_fiction.SCIENCE_FICTION_FILE
         order by create_date desc
     </select>
-    <select id="getFileInformationByBookId" resultType="com.veeja.pojo.ScienceFictionFile"></select>
+    <select id="getOneById" resultType="com.veeja.pojo.ScienceFictionFile">
+        select *
+        from SCIENCE_FICTION_FILE
+        where id = #{id}
+    </select>
 </mapper>

@@ -6,4 +6,11 @@
         from SCIENCE_FICTION_BOOK
         order by create_date desc
     </select>
+
+    <select id="getOneById" resultType="com.veeja.pojo.ScienceFictionBook">
+        select *
+        from SCIENCE_FICTION_BOOK
+        where id = #{id}
+        limit 1
+    </select>
 </mapper>

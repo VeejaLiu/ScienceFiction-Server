@@ -18,8 +18,8 @@ public class ScienceFictionFileServiceImpl  implements ScienceFictionFileService
     }
 
     @Override
-    public ScienceFictionFile getFileInformationByBookId(String id) {
-        ScienceFictionFile file = scienceFictionFileMapper.getFileInformationByBookId(id);
+    public ScienceFictionFile getOneById(Long id) {
+        ScienceFictionFile file = scienceFictionFileMapper.getOneById(id);
         return file;
     }
 }

@@ -5,4 +5,6 @@ import com.veeja.pojo.ScienceFictionBook;import java.util.List;
 
 public interface ScienceFictionBookMapper extends BaseMapper<ScienceFictionBook> {
     List<ScienceFictionBook> selectAll();
+
+    ScienceFictionBook getOneById(Integer id);
 }

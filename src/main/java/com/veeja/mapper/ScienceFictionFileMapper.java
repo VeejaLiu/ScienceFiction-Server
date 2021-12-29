@@ -8,5 +8,5 @@ import java.util.List;
 public interface ScienceFictionFileMapper extends BaseMapper<ScienceFictionFile> {
     List<ScienceFictionFile> selectAll();
 
-    ScienceFictionFile getFileInformationByBookId(String id);
+    ScienceFictionFile getOneById(Long id);
 }
