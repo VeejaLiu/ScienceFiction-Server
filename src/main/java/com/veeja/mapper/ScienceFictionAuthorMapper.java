@@ -8,17 +8,20 @@ import java.util.List;
 
 /**
  * Author Mapper
+ *
  * @author liuweijia
  */
 public interface ScienceFictionAuthorMapper extends BaseMapper<ScienceFictionAuthor> {
     /**
      * 获取全部作者信息
+     *
      * @return
      */
     List<ScienceFictionAuthor> selectAll();
 
     /**
      * 根据名字获取作者信息
+     *
      * @param firstName
      * @return
      */
