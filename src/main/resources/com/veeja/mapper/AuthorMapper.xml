@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.veeja.mapper.ScienceFictionAuthorMapper">
-    <select id="selectAll" resultType="com.veeja.pojo.ScienceFictionAuthor">
+<mapper namespace="com.veeja.mapper.AuthorMapper">
+    <select id="selectAll" resultType="com.veeja.pojo.Author">
         select *
-        from SCIENCE_FICTION_AUTHOR
+        from author
         order by create_date desc
     </select>
-    <select id="selectAuthorByFirstName" resultType="com.veeja.pojo.ScienceFictionAuthor">
+    <select id="selectAuthorByFirstName" resultType="com.veeja.pojo.Author">
         select *
-        from SCIENCE_FICTION_AUTHOR
+        from author
         where author_first_name = #{firstName}
         limit 1
     </select>

@@ -1,7 +1,7 @@
 package com.veeja.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.veeja.pojo.ScienceFictionBook;
+import com.veeja.pojo.Book;
 
 import java.util.List;
 
@@ -11,13 +11,13 @@ import java.util.List;
  * @author
  * @since 2020-10-10
  */
-public interface ScienceFictionBookMapper extends BaseMapper<ScienceFictionBook> {
+public interface BookMapper extends BaseMapper<Book> {
     /**
      * 查询所有的科幻小说
      *
      * @return 所有的科幻小说
      */
-    List<ScienceFictionBook> selectAll();
+    List<Book> selectAll();
 
     /**
      * 根据id查询科幻小说
@@ -25,5 +25,5 @@ public interface ScienceFictionBookMapper extends BaseMapper<ScienceFictionBook>
      * @param id id
      * @return 科幻小说
      */
-    ScienceFictionBook getOneById(Integer id);
+    Book getOneById(Integer id);
 }

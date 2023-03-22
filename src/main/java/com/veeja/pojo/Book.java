@@ -5,15 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-@TableName(value = "SCIENCE_FICTION_BOOK")
-public class ScienceFictionBook {
-    public static final String COL_ID = "id";
-    public static final String COL_BOOK_NAME = "book_name";
-    public static final String COL_BOOK_AUTHOR = "book_author";
-    public static final String COL_BOOK_CATEGORY = "book_category";
-    public static final String COL_BOOK_TAGS = "book_tags";
-    public static final String COL_BOOK_IMAGES = "book_images";
-    public static final String COL_BOOK_PATH = "book_path";
+@TableName(value = "book")
+public class Book {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
@@ -161,7 +154,7 @@ public class ScienceFictionBook {
         if (getClass() != that.getClass()) {
             return false;
         }
-        ScienceFictionBook other = (ScienceFictionBook) that;
+        Book other = (Book) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
                 && (this.getBookName() == null ? other.getBookName() == null : this.getBookName().equals(other.getBookName()))
                 && (this.getBookAuthor() == null ? other.getBookAuthor() == null : this.getBookAuthor().equals(other.getBookAuthor()))

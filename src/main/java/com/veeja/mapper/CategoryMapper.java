@@ -1,7 +1,7 @@
 package com.veeja.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.veeja.pojo.ScienceFictionCategory;
+import com.veeja.pojo.Category;
 
 import java.util.List;
 
@@ -11,12 +11,12 @@ import java.util.List;
  *
  * @author Veeja Liu
  */
-public interface ScienceFictionCategoryMapper extends BaseMapper<ScienceFictionCategory> {
+public interface CategoryMapper extends BaseMapper<Category> {
     /**
      * 查询所有目录
      *
      * @return 所有目录
      */
-    List<ScienceFictionCategory> selectAll();
+    List<Category> selectAll();
 
 }

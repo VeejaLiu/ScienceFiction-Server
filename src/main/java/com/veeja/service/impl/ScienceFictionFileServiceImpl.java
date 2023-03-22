@@ -4,22 +4,22 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 import com.veeja.pojo.ScienceFictionFile;
-import com.veeja.mapper.ScienceFictionFileMapper;
+import com.veeja.mapper.FileMapper;
 import com.veeja.service.ScienceFictionFileService;
 @Service
 public class ScienceFictionFileServiceImpl  implements ScienceFictionFileService{
 
     @Resource
-    private ScienceFictionFileMapper scienceFictionFileMapper;
+    private FileMapper fileMapper;
 
     @Override
     public List<ScienceFictionFile> selectAll() {
-        return scienceFictionFileMapper.selectAll();
+        return fileMapper.selectAll();
     }
 
     @Override
     public ScienceFictionFile getOneById(Long id) {
-        ScienceFictionFile file = scienceFictionFileMapper.getOneById(id);
+        ScienceFictionFile file = fileMapper.getOneById(id);
         return file;
     }
 }

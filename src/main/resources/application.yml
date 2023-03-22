@@ -4,11 +4,25 @@ SFS:
   version: 1.0.8
 
 server:
+  http2:
+    # 字符集
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
   # 服务器HTTP端口，默认为80
   port: 80
   servlet:
     # 应用访问路径
     context-path: /
+    # tomcat的session超时时间，默认为30分钟
+    session:
+      timeout: 30m
+    # encoding
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
   tomcat:
     # tomcat的URI编码
     uri-encoding: UTF-8
@@ -21,12 +35,13 @@ server:
       min-spare: 100
 
 
+#
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://xxx.xxx.xxx.xxx:3306/science_fiction
-    username: test
-    password: "test"
+    url: jdbc:mysql://127.0.0.1:3306/science_fiction?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: "MySQLPass2023"
   servlet:
     multipart:
       max-file-size: 10MB

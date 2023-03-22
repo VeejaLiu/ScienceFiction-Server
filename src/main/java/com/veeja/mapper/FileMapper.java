@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Veeja Liu
  */
-public interface ScienceFictionFileMapper extends BaseMapper<ScienceFictionFile> {
+public interface FileMapper extends BaseMapper<ScienceFictionFile> {
     /**
      * 查询所有文件
      *

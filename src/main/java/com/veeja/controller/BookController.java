@@ -1,45 +1,40 @@
 package com.veeja.controller;
 
 import com.veeja.dto.UploadBook;
-import com.veeja.pojo.ScienceFictionBook;
+import com.veeja.pojo.Book;
 import com.veeja.pojo.ScienceFictionFile;
-import com.veeja.service.ScienceFictionBookService;
+import com.veeja.service.BookService;
 import com.veeja.service.ScienceFictionFileService;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.List;
 
 /**
  * @author liuweijia
  */
 @RestController
-@RequestMapping("book")
-public class ScienceFictionBookController {
+@RequestMapping("books")
+public class BookController {
     @Resource
-    private ScienceFictionBookService scienceFictionBookService;
+    private BookService scienceFictionBookService;
 
     @Resource
     private ScienceFictionFileService scienceFictionFileService;
 
-    @GetMapping("getAllBook")
+    @GetMapping(value = "", produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public List<ScienceFictionBook> selectAll() {
-        List<ScienceFictionBook> books = scienceFictionBookService.selectAll();
+    public List<Book> selectAll() {
+        List<Book> books = scienceFictionBookService.selectAll();
         return books;
     }
 
-    @PostMapping("uploadBook")
+    @PostMapping("/uploadBook")
     public String uploadBook(UploadBook uploadBook) throws IOException {
         scienceFictionBookService.uploadBook(uploadBook);
         return "success";
@@ -48,7 +43,7 @@ public class ScienceFictionBookController {
     @GetMapping("/downloadBookByID")
     @ResponseBody
     public void downloadBook(HttpServletResponse response, @RequestHeader("user-agent") String userAgent, @Param("id") Integer id) throws IOException {
-        ScienceFictionBook book = scienceFictionBookService.getOneById(id);
+        Book book = scienceFictionBookService.getOneById(id);
         ScienceFictionFile file = scienceFictionFileService.getOneById(book.getBookFilePath());
         File bookFile = new File(file.getPath());
         // 两个头

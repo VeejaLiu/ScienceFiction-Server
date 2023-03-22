@@ -6,8 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.util.Date;
 
-@TableName(value = "SCIENCE_FICTION_AUTHOR")
-public class ScienceFictionAuthor {
+@TableName(value = "author")
+public class Author {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
@@ -173,7 +173,7 @@ public class ScienceFictionAuthor {
         if (getClass() != that.getClass()) {
             return false;
         }
-        ScienceFictionAuthor other = (ScienceFictionAuthor) that;
+        Author other = (Author) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
                 && (this.getAuthorFirstName() == null ? other.getAuthorFirstName() == null : this.getAuthorFirstName().equals(other.getAuthorFirstName()))
                 && (this.getAuthorLastName() == null ? other.getAuthorLastName() == null : this.getAuthorLastName().equals(other.getAuthorLastName()))

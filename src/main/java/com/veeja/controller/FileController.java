@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("file")
-public class ScienceFictionFileController {
+public class FileController {
     @Resource
     private ScienceFictionFileService scienceFictionFileService;
 

@@ -1,14 +1,14 @@
 package com.veeja.service.impl;
 
 import com.veeja.dto.UploadBook;
-import com.veeja.mapper.ScienceFictionAuthorMapper;
-import com.veeja.mapper.ScienceFictionBookMapper;
-import com.veeja.mapper.ScienceFictionFileMapper;
-import com.veeja.pojo.ScienceFictionAuthor;
-import com.veeja.pojo.ScienceFictionBook;
+import com.veeja.mapper.AuthorMapper;
+import com.veeja.mapper.BookMapper;
+import com.veeja.mapper.FileMapper;
+import com.veeja.pojo.Author;
+import com.veeja.pojo.Book;
 import com.veeja.pojo.ScienceFictionFile;
-import com.veeja.service.ScienceFictionAuthorService;
-import com.veeja.service.ScienceFictionBookService;
+import com.veeja.service.AuthorService;
+import com.veeja.service.BookService;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,19 +20,19 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ScienceFictionBookServiceImpl implements ScienceFictionBookService {
+public class BookServiceImpl implements BookService {
     @Resource
-    private ScienceFictionBookMapper scienceFictionBookMapper;
+    private BookMapper bookMapper;
     @Resource
-    private ScienceFictionFileMapper scienceFictionFileMapper;
+    private FileMapper fileMapper;
     @Resource
-    private ScienceFictionAuthorMapper scienceFictionAuthorMapper;
+    private AuthorMapper authorMapper;
     @Resource
-    private ScienceFictionAuthorService scienceFictionAuthorService;
+    private AuthorService authorService;
 
     @Override
-    public List<ScienceFictionBook> selectAll() {
-        return scienceFictionBookMapper.selectAll();
+    public List<Book> selectAll() {
+        return bookMapper.selectAll();
     }
 
     @Override
@@ -65,19 +65,19 @@ public class ScienceFictionBookServiceImpl implements ScienceFictionBookService 
                 bookFile.setFileSize(fileSize);
                 bookFile.setPath(path + newFileName);
                 bookFile.setFileName(newFileName);
-                scienceFictionFileMapper.insert(bookFile);
+                fileMapper.insert(bookFile);
 
                 // 保存作者信息
-                ScienceFictionAuthor author = new ScienceFictionAuthor();
+                Author author = new Author();
                 author.setAuthorFirstName(bookAuthor);
-                author = scienceFictionAuthorService.getAuthor(author);
+                author = authorService.getAuthor(author);
 
                 // 保存书籍信息
-                ScienceFictionBook book = new ScienceFictionBook();
+                Book book = new Book();
                 book.setBookFilePath(bookFile.getId());
                 book.setBookAuthor(author.getId());
                 book.setBookName(bookName);
-                scienceFictionBookMapper.insert(book);
+                bookMapper.insert(book);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -85,8 +85,8 @@ public class ScienceFictionBookServiceImpl implements ScienceFictionBookService 
     }
 
     @Override
-    public ScienceFictionBook getOneById(Integer id) {
-        return scienceFictionBookMapper.getOneById(id);
+    public Book getOneById(Integer id) {
+        return bookMapper.getOneById(id);
     }
 
     private String getNewFilePath(String oldFileName) {

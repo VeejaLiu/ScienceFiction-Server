@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-@TableName(value = "SCIENCE_FICTION_CATEGORY")
-public class ScienceFictionCategory {
+@TableName(value = "category")
+public class Category {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
@@ -64,7 +64,7 @@ public class ScienceFictionCategory {
         if (getClass() != that.getClass()) {
             return false;
         }
-        ScienceFictionCategory other = (ScienceFictionCategory) that;
+        Category other = (Category) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getCategoryName() == null ? other.getCategoryName() == null : this.getCategoryName().equals(other.getCategoryName()));
     }
