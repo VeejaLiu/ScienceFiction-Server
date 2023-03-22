@@ -4,6 +4,8 @@
 ```sql
 create DATABASE science_fiction DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
+use science_fiction;
+
 create table science_fiction.SCIENCE_FICTION_AUTHOR
 (
     id                  bigint auto_increment
