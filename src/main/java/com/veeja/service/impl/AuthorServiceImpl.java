@@ -1,8 +1,8 @@
 package com.veeja.service.impl;
 
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 import com.veeja.mapper.AuthorMapper;

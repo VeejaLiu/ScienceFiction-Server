@@ -2,9 +2,9 @@ package com.veeja.controller;
 
 import com.veeja.pojo.Author;
 import com.veeja.service.AuthorService;
+import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -21,7 +21,7 @@ public class AuthorController {
      *
      * @return 所有作者
      */
-    @GetMapping(value = "/", produces = "application/json;charset=UTF-8")
+    @GetMapping(value = "", produces = "application/json;charset=UTF-8")
     @ResponseBody
     public List<Author> selectAll() {
         List<Author> authors = authorService.selectAll();

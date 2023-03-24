@@ -9,11 +9,11 @@ import com.veeja.pojo.Book;
 import com.veeja.pojo.ScienceFictionFile;
 import com.veeja.service.AuthorService;
 import com.veeja.service.BookService;
+import jakarta.annotation.Resource;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
