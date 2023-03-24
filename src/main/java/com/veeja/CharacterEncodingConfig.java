@@ -12,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 public class CharacterEncodingConfig extends WebMvcConfigurationSupport {
     @Bean
     public CharacterEncodingFilter characterEncodingFilter() {
+        // 用于解决中文乱码问题
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");
         filter.setForceEncoding(true);
