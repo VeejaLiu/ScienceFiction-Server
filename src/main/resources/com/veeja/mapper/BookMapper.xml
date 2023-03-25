@@ -4,7 +4,8 @@
     <select id="selectAll" resultType="com.veeja.pojo.Book">
         select *
         from book
-        # order by create_date desc
+        order by id
+        limit #{param1}, #{param2}
     </select>
 
     <select id="getOneById" resultType="com.veeja.pojo.Book">

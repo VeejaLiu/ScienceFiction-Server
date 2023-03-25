@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
+import java.util.Date;
+
 @TableName(value = "book")
 public class Book {
     @TableId(value = "id", type = IdType.AUTO)
@@ -27,6 +29,12 @@ public class Book {
 
     @TableField(value = "book_file_path")
     private Long bookFilePath;
+
+    @TableField(value = "create_date")
+    private Date createDate;
+
+    @TableField(value = "update_date")
+    private Date updateDate;
 
     /**
      * @return id
@@ -126,55 +134,37 @@ public class Book {
         this.bookFilePath = bookFilePath;
     }
 
+    /**
+     * @return create_date
+     */
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    /**
+     * @param createDate
+     */
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    /**
+     * @return update_date
+     */
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    /**
+     * @param updateDate
+     */
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", bookName=").append(bookName);
-        sb.append(", bookAuthor=").append(bookAuthor);
-        sb.append(", bookCategory=").append(bookCategory);
-        sb.append(", bookTags=").append(bookTags);
-        sb.append(", bookImages=").append(bookImages);
-        sb.append(", bookFilePath=").append(bookFilePath);
-        sb.append("]");
-        return sb.toString();
-    }
-
-    @Override
-    public boolean equals(Object that) {
-        if (this == that) {
-            return true;
-        }
-        if (that == null) {
-            return false;
-        }
-        if (getClass() != that.getClass()) {
-            return false;
-        }
-        Book other = (Book) that;
-        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-                && (this.getBookName() == null ? other.getBookName() == null : this.getBookName().equals(other.getBookName()))
-                && (this.getBookAuthor() == null ? other.getBookAuthor() == null : this.getBookAuthor().equals(other.getBookAuthor()))
-                && (this.getBookCategory() == null ? other.getBookCategory() == null : this.getBookCategory().equals(other.getBookCategory()))
-                && (this.getBookTags() == null ? other.getBookTags() == null : this.getBookTags().equals(other.getBookTags()))
-                && (this.getBookImages() == null ? other.getBookImages() == null : this.getBookImages().equals(other.getBookImages()))
-                && (this.getBookFilePath() == null ? other.getBookFilePath() == null : this.getBookFilePath().equals(other.getBookFilePath()));
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getBookName() == null) ? 0 : getBookName().hashCode());
-        result = prime * result + ((getBookAuthor() == null) ? 0 : getBookAuthor().hashCode());
-        result = prime * result + ((getBookCategory() == null) ? 0 : getBookCategory().hashCode());
-        result = prime * result + ((getBookTags() == null) ? 0 : getBookTags().hashCode());
-        result = prime * result + ((getBookImages() == null) ? 0 : getBookImages().hashCode());
-        result = prime * result + ((getBookFilePath() == null) ? 0 : getBookFilePath().hashCode());
-        return result;
+        return "Book{" + "id=" + id + ", bookName='" + bookName + '\'' + ", bookAuthor=" + bookAuthor + ", bookCategory=" + bookCategory + ", bookTags='" + bookTags + '\'' + ", bookImages='" + bookImages + '\'' + ", bookFilePath=" + bookFilePath + ", createDate=" + createDate + ", updateDate=" + updateDate + '}';
     }
 }

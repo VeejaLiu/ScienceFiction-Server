@@ -4,7 +4,7 @@
     <select id="selectAll" resultType="com.veeja.pojo.Author">
         select *
         from author
-        order by create_date desc
+        order by id
     </select>
     <select id="selectAuthorByFirstName" resultType="com.veeja.pojo.Author">
         select *

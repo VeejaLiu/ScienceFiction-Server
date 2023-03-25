@@ -1,6 +1,7 @@
 package com.veeja.controller;
 
 import com.veeja.dto.UploadBook;
+import com.veeja.dto.book.GetAllBookResult;
 import com.veeja.pojo.Book;
 import com.veeja.pojo.ScienceFictionFile;
 import com.veeja.service.BookService;
@@ -15,11 +16,11 @@ import org.springframework.web.bind.annotation.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * @author liuweijia
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("books")
 public class BookController {
@@ -29,12 +30,19 @@ public class BookController {
     @Resource
     private ScienceFictionFileService scienceFictionFileService;
 
-    @GetMapping(value = "", produces = "application/json;charset=UTF-8")
+    /**
+     * 获取所有书籍
+     *
+     * @param page 页码
+     * @param size 每页数量
+     * @return 所有书籍
+     */
+    @GetMapping("")
     @ResponseBody
-    public List<Book> selectAll() {
-        List<Book> books = scienceFictionBookService.selectAll();
-        return books;
+    public GetAllBookResult selectAll(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
+        return scienceFictionBookService.selectAll(offset, limit);
     }
+
 
     @PostMapping("/uploadBook")
     public String uploadBook(UploadBook uploadBook) throws IOException {
@@ -51,7 +59,7 @@ public class BookController {
         // 两个头
         // 通过文件名称获取文件MIME类型
         String contentType = "text/txt";
-        String contentDisposition = "attachment;filename="+file.getFileName();
+        String contentDisposition = "attachment;filename=" + file.getFileName();
         // 创建一个数据流
         FileInputStream input = new FileInputStream(file.getPath());
 

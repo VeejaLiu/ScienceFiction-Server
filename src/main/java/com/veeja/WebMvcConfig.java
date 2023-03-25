@@ -26,7 +26,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         // 允许跨域访问的路径
         registry.addMapping("/**")
                 // 允许跨域访问的源
-                .allowedOrigins("*")
+                .allowedOriginPatterns("*")
                 // 允许请求的方法
                 .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE")
                 // 预检间隔时间
@@ -35,10 +35,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .allowCredentials(true);
     }
 
-    @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        // 解决中文乱码问题
-        StringHttpMessageConverter converter = new StringHttpMessageConverter(StandardCharsets.UTF_8);
-        converters.add(converter);
-    }
+//    @Override
+//    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+//        // 解决中文乱码问题
+//        StringHttpMessageConverter converter = new StringHttpMessageConverter(StandardCharsets.UTF_8);
+//        converters.add(converter);
+//    }
 }

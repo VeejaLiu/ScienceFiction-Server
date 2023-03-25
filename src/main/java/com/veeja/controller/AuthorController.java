@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * @author liuweijia
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("authors")
 public class AuthorController {

@@ -1,6 +1,7 @@
 package com.veeja.service.impl;
 
 import com.veeja.dto.UploadBook;
+import com.veeja.dto.book.GetAllBookResult;
 import com.veeja.mapper.AuthorMapper;
 import com.veeja.mapper.BookMapper;
 import com.veeja.mapper.FileMapper;
@@ -16,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -31,8 +31,11 @@ public class BookServiceImpl implements BookService {
     private AuthorService authorService;
 
     @Override
-    public List<Book> selectAll() {
-        return bookMapper.selectAll();
+    public GetAllBookResult selectAll(Integer offset, Integer limit) {
+        GetAllBookResult result = new GetAllBookResult();
+        result.setBooks(bookMapper.selectAll(offset, limit));
+        result.setTotal(bookMapper.selectCount(null));
+        return result;
     }
 
     @Override

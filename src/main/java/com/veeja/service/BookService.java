@@ -1,12 +1,11 @@
 package com.veeja.service;
 
 import com.veeja.dto.UploadBook;
+import com.veeja.dto.book.GetAllBookResult;
 import com.veeja.pojo.Book;
 
-import java.util.List;
-
 public interface BookService {
-    List<Book> selectAll();
+    GetAllBookResult selectAll(Integer offset, Integer limit);
 
     void uploadBook(UploadBook uploadBook);
 
