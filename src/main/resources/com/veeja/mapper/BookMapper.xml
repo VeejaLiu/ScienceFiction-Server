@@ -4,6 +4,13 @@
     <select id="selectAll" resultType="com.veeja.pojo.Book">
         select *
         from book
+        <where>
+            <!-- If bookName is not null, search by bookname, param3-->
+            <if test="param3 != null">
+                and book_name like concat('%', #{param3}, '%')
+            </if>
+        </where>
+        <!-- Order by id -->
         order by id
         limit #{param1}, #{param2}
     </select>

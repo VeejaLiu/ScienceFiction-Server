@@ -1,5 +1,7 @@
 package com.veeja.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.veeja.dto.UploadBook;
 import com.veeja.dto.book.GetAllBookResult;
 import com.veeja.mapper.AuthorMapper;
@@ -31,10 +33,12 @@ public class BookServiceImpl implements BookService {
     private AuthorService authorService;
 
     @Override
-    public GetAllBookResult selectAll(Integer offset, Integer limit) {
+    public GetAllBookResult selectAll(Integer offset, Integer limit, String bookName) {
         GetAllBookResult result = new GetAllBookResult();
-        result.setBooks(bookMapper.selectAll(offset, limit));
-        result.setTotal(bookMapper.selectCount(null));
+        result.setBooks(bookMapper.selectAll(offset, limit, bookName));
+        Wrapper wrapper = new QueryWrapper<Book>()
+                .eq("book_name", bookName);
+        result.setTotal(bookMapper.selectCount(wrapper));
         return result;
     }
 
