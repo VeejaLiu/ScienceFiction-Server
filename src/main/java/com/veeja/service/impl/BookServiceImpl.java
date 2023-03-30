@@ -36,8 +36,7 @@ public class BookServiceImpl implements BookService {
     public GetAllBookResult selectAll(Integer offset, Integer limit, String bookName) {
         GetAllBookResult result = new GetAllBookResult();
         result.setBooks(bookMapper.selectAll(offset, limit, bookName));
-        Wrapper wrapper = new QueryWrapper<Book>()
-                .eq("book_name", bookName);
+        Wrapper wrapper = new QueryWrapper<Book>().like("book_name", bookName);
         result.setTotal(bookMapper.selectCount(wrapper));
         return result;
     }

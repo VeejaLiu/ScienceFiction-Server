@@ -33,8 +33,8 @@ public class BookController {
     /**
      * 获取所有书籍
      *
-     * @param page 页码
-     * @param size 每页数量
+     * @param offset 页码
+     * @param limit 每页数量
      * @param bookName 书名
      * @return 所有书籍
      */
