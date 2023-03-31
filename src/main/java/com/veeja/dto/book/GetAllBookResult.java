@@ -7,16 +7,16 @@ import java.util.List;
 public class GetAllBookResult {
 
     // all books
-    private List<Book> books;
+    private List<GetAllBookResultBook> books;
 
     // total number of books
     private Long total;
 
-    public List<Book> getBooks() {
+    public List<GetAllBookResultBook> getBooks() {
         return books;
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(List<GetAllBookResultBook> books) {
         this.books = books;
     }
 

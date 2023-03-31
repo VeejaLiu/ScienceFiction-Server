@@ -1,6 +1,7 @@
 package com.veeja.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.veeja.dto.book.GetAllBookResultBook;
 import com.veeja.pojo.Book;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public interface BookMapper extends BaseMapper<Book> {
      *
      * @return 所有的科幻小说
      */
-    List<Book> selectAll(Integer offset, Integer limit, String bookName);
+    List<GetAllBookResultBook> selectAll(Integer offset, Integer limit, String bookName);
 
     /**
      * 根据id查询科幻小说

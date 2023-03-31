@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.veeja.mapper.BookMapper">
-    <select id="selectAll" resultType="com.veeja.pojo.Book">
-        select *
-        from book
+    <select id="selectAll" resultType="com.veeja.dto.book.GetAllBookResultBook">
+        select b.id                                                 as bookId,
+               b.book_name                                          as bookName,
+               concat(a.author_first_name, ' ', a.author_last_name) as bookAuthor,
+               c.category_name                                      as bookCategory,
+               b.book_tags                                          as bookTags
+        from book as b
+                 left join author as a on b.book_author = a.id
+                 left join category as c on b.book_category = c.id
         <where>
             <!-- If bookName is not null, search by bookname, param3-->
             <if test="param3 != null">
-                and book_name like concat('%', #{param3}, '%')
+                and b.book_name like concat('%', #{param3}, '%')
             </if>
         </where>
         <!-- Order by id -->
-        order by id
+        order by b.id
         limit #{param1}, #{param2}
     </select>
 
