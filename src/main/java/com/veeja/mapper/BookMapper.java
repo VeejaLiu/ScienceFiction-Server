@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 科幻小说Mapper
  *
- * @author
+ * @author veeja
  * @since 2020-10-10
  */
 public interface BookMapper extends BaseMapper<Book> {
