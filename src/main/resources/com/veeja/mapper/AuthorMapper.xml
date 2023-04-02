@@ -4,7 +4,18 @@
     <select id="selectAll" resultType="com.veeja.pojo.Author">
         select *
         from author
+        <where>
+            <!-- If bookName is not null, search by bookname, param3-->
+            <if test="param3 != null">
+                and (
+                            (LOWER(author_first_name) like LOWER(concat('%', #{param3}, '%')))
+                            or
+                            (LOWER(author_last_name) like LOWER(concat('%', #{param3}, '%')))
+                        )
+            </if>
+        </where>
         order by id
+        limit #{param1}, #{param2}
     </select>
     <select id="selectAuthorByFirstName" resultType="com.veeja.pojo.Author">
         select *

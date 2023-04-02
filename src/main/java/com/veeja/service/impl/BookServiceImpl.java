@@ -33,10 +33,10 @@ public class BookServiceImpl implements BookService {
     private AuthorService authorService;
 
     @Override
-    public GetAllBookResult selectAll(Integer offset, Integer limit, String bookName) {
+    public GetAllBookResult selectAll(Integer offset, Integer limit, String keyword) {
         GetAllBookResult result = new GetAllBookResult();
-        result.setBooks(bookMapper.selectAll(offset, limit, bookName));
-        Wrapper wrapper = new QueryWrapper<Book>().like("book_name", bookName);
+        result.setBooks(bookMapper.selectAll(offset, limit, keyword));
+        Wrapper wrapper = new QueryWrapper<Book>().like("book_name", keyword);
         result.setTotal(bookMapper.selectCount(wrapper));
         return result;
     }

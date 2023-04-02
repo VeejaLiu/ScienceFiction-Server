@@ -1,11 +1,10 @@
 package com.veeja.service;
 
+import com.veeja.dto.book.GetAllAuthorResult;
 import com.veeja.pojo.Author;
 
-import java.util.List;
-
 public interface AuthorService {
-    List<Author> selectAll();
+    GetAllAuthorResult selectAll(Integer offset, Integer limit, String keyword);
 
     Author getAuthor(Author author);
 

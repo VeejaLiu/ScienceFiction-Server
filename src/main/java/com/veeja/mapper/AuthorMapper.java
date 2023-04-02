@@ -17,7 +17,7 @@ public interface AuthorMapper extends BaseMapper<Author> {
      *
      * @return
      */
-    List<Author> selectAll();
+    List<Author> selectAll(Integer offset, Integer limit, String keyword);
 
     /**
      * 根据名字获取作者信息

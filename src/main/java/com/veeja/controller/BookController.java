@@ -33,15 +33,15 @@ public class BookController {
     /**
      * 获取所有书籍
      *
-     * @param offset 页码
-     * @param limit 每页数量
-     * @param bookName 书名
+     * @param offset  页码
+     * @param limit   每页数量
+     * @param keyword 关键字
      * @return 所有书籍
      */
     @GetMapping("")
     @ResponseBody
-    public GetAllBookResult selectAll(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit, @RequestParam("bookName") String bookName) {
-        return scienceFictionBookService.selectAll(offset, limit, bookName);
+    public GetAllBookResult selectAll(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit, @RequestParam("bookName") String keyword) {
+        return scienceFictionBookService.selectAll(offset, limit, keyword);
     }
 
 

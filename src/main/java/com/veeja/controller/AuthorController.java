@@ -1,11 +1,10 @@
 package com.veeja.controller;
 
+import com.veeja.dto.book.GetAllAuthorResult;
 import com.veeja.pojo.Author;
 import com.veeja.service.AuthorService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @author liuweijia
@@ -24,9 +23,8 @@ public class AuthorController {
      */
     @GetMapping(value = "", produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public List<Author> selectAll() {
-        List<Author> authors = authorService.selectAll();
-        return authors;
+    public GetAllAuthorResult selectAll(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit, @RequestParam("keyword") String keyword) {
+        return authorService.selectAll(offset, limit, keyword);
     }
 
     @PostMapping(value = "updateAuthor", produces = "application/json;charset=UTF-8")

@@ -1,13 +1,14 @@
 package com.veeja.service.impl;
 
-import jakarta.annotation.Resource;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.veeja.dto.book.GetAllAuthorResult;
 import com.veeja.mapper.AuthorMapper;
 import com.veeja.pojo.Author;
 import com.veeja.service.AuthorService;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
@@ -16,8 +17,12 @@ public class AuthorServiceImpl implements AuthorService {
     private AuthorMapper authorMapper;
 
     @Override
-    public List<Author> selectAll() {
-        return authorMapper.selectAll();
+    public GetAllAuthorResult selectAll(Integer offset, Integer limit, String keyword) {
+        GetAllAuthorResult result = new GetAllAuthorResult();
+        result.setAuthors(authorMapper.selectAll(offset, limit, keyword));
+        Wrapper wrapper = Wrappers.<Author>lambdaQuery().like(StringUtils.isNotBlank(keyword), Author::getAuthorFirstName, keyword.toLowerCase()).or().like(StringUtils.isNotBlank(keyword), Author::getAuthorLastName, keyword.toLowerCase());
+        result.setTotal(authorMapper.selectCount(wrapper));
+        return result;
     }
 
     @Override
