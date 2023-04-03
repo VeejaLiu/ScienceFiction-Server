@@ -1,6 +1,6 @@
 package com.veeja.service;
 
-import com.veeja.dto.book.GetAllAuthorResult;
+import com.veeja.dto.author.GetAllAuthorResult;
 import com.veeja.pojo.Author;
 
 public interface AuthorService {

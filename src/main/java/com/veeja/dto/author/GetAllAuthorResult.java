@@ -1,4 +1,4 @@
-package com.veeja.dto.book;
+package com.veeja.dto.author;
 
 import com.veeja.pojo.Author;
 

@@ -9,12 +9,20 @@
     </resultMap>
     <sql id="Base_Column_List">
         <!--@mbg.generated-->
-        id, category_name
+        id,
+        category_name
     </sql>
 
     <select id="selectAll" resultType="com.veeja.pojo.Category">
         select *
         from category
-        order by create_date desc
+        <where>
+            <!-- If category_name is not null, search by category_name, param3-->
+            <if test="param3 != null">
+                and (category_name like concat('%', #{param3}, '%'))
+            </if>
+        </where>
+        order by id
+        limit #{param1}, #{param2}
     </select>
 </mapper>

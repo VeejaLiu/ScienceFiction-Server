@@ -3,7 +3,7 @@ package com.veeja.service.impl;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.veeja.dto.book.GetAllAuthorResult;
+import com.veeja.dto.author.GetAllAuthorResult;
 import com.veeja.mapper.AuthorMapper;
 import com.veeja.pojo.Author;
 import com.veeja.service.AuthorService;

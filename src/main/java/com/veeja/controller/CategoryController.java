@@ -1,25 +1,32 @@
 package com.veeja.controller;
 
+import com.veeja.dto.category.GetAllCategoryResult;
 import com.veeja.pojo.Category;
 import com.veeja.service.CategoryService;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("category")
+@RequestMapping("categories")
 public class CategoryController {
     @Resource
     private CategoryService categoryService;
 
-    @GetMapping("getAllCategory")
+    /**
+     * 获取所有分类
+     *
+     * @param offset  页码
+     * @param limit   每页数量
+     * @param keyword 关键字
+     * @return 所有分类
+     */
+    @GetMapping(value = "", produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public List<Category> selectAll() {
-        List<Category> categories = categoryService.selectAll();
+    public GetAllCategoryResult selectAll(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit, @RequestParam("keyword") String keyword) {
+        GetAllCategoryResult categories = categoryService.selectAll(offset, limit, keyword);
         return categories;
     }
 }

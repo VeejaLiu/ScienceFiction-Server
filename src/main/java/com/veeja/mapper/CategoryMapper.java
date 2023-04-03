@@ -17,6 +17,6 @@ public interface CategoryMapper extends BaseMapper<Category> {
      *
      * @return 所有目录
      */
-    List<Category> selectAll();
+    List<Category> selectAll(Integer offset, Integer limit, String keyword);
 
 }

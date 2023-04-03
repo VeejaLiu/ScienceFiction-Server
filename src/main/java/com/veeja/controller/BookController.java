@@ -25,10 +25,10 @@ import java.io.IOException;
 @RequestMapping("books")
 public class BookController {
     @Resource
-    private BookService scienceFictionBookService;
+    private BookService bookService;
 
     @Resource
-    private ScienceFictionFileService scienceFictionFileService;
+    private ScienceFictionFileService fileService;
 
     /**
      * 获取所有书籍
@@ -41,21 +41,21 @@ public class BookController {
     @GetMapping("")
     @ResponseBody
     public GetAllBookResult selectAll(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit, @RequestParam("bookName") String keyword) {
-        return scienceFictionBookService.selectAll(offset, limit, keyword);
+        return bookService.selectAll(offset, limit, keyword);
     }
 
 
     @PostMapping("/uploadBook")
     public String uploadBook(UploadBook uploadBook) throws IOException {
-        scienceFictionBookService.uploadBook(uploadBook);
+        bookService.uploadBook(uploadBook);
         return "success";
     }
 
     @GetMapping("/downloadBookByID")
     @ResponseBody
     public void downloadBook(HttpServletResponse response, @RequestHeader("user-agent") String userAgent, @Param("id") Integer id) throws IOException {
-        Book book = scienceFictionBookService.getOneById(id);
-        ScienceFictionFile file = scienceFictionFileService.getOneById(book.getBookFilePath());
+        Book book = bookService.getOneById(id);
+        ScienceFictionFile file = fileService.getOneById(book.getBookFilePath());
         File bookFile = new File(file.getPath());
         // 两个头
         // 通过文件名称获取文件MIME类型

@@ -1,11 +1,9 @@
 package com.veeja.service;
 
-import com.veeja.pojo.Category;
-
-import java.util.List;
+import com.veeja.dto.category.GetAllCategoryResult;
 
 public interface CategoryService {
 
-    List<Category> selectAll();
+    GetAllCategoryResult selectAll(Integer offset, Integer limit, String keyword);
 
 }

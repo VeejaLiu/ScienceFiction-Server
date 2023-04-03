@@ -1,6 +1,6 @@
 package com.veeja.controller;
 
-import com.veeja.dto.book.GetAllAuthorResult;
+import com.veeja.dto.author.GetAllAuthorResult;
 import com.veeja.pojo.Author;
 import com.veeja.service.AuthorService;
 import jakarta.annotation.Resource;
@@ -19,6 +19,9 @@ public class AuthorController {
     /**
      * 查询所有作者
      *
+     * @param offset  页码
+     * @param limit   每页数量
+     * @param keyword 关键字
      * @return 所有作者
      */
     @GetMapping(value = "", produces = "application/json;charset=UTF-8")
